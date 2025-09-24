@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package something;
+
+message SomethingMessage {
+  string id = 1;
+  string title = 2;
+  string something_from_another_service = 3;
+}
+
+message ProcessSomethingRequest {
+  SomethingMessage something = 1;
+}
+
+message ProcessSomethingResponse {
+  SomethingMessage something = 1;
+}
+
+service SomethingProcessor {
+  rpc ProcessSomething (ProcessSomethingRequest) returns (ProcessSomethingResponse);
+}
